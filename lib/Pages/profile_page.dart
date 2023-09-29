@@ -32,8 +32,8 @@ class ProfilePage extends StatelessWidget {
             margin: const EdgeInsets.symmetric(vertical: 0, horizontal: 15),
             child: const CircleAvatar(
               radius: 50,
-              backgroundImage:
-              AssetImage('images/profile.jpeg'), // Replace with your profile image
+              backgroundImage: AssetImage(
+                  'images/profile.jpeg'), // Replace with your profile image
             ),
           ),
           _profileInfo('Username:', 'SilkRoad'),
@@ -54,7 +54,8 @@ class ProfilePage extends StatelessWidget {
                   backgroundColor: const Color(0xFF388E01),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25)),
-                  padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 22)),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 12, horizontal: 22)),
               child: const Text(
                 "Logout",
                 style: TextStyle(fontSize: 18),

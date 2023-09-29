@@ -7,8 +7,11 @@ class NewsDetailPage extends StatelessWidget {
   final String date;
   final String newsText;
 
-
-  NewsDetailPage({required this.imagePath, required this.title, required this.date, required this.newsText});
+  NewsDetailPage(
+      {required this.imagePath,
+      required this.title,
+      required this.date,
+      required this.newsText});
 
   @override
   Widget build(BuildContext context) {
@@ -33,24 +36,24 @@ class NewsDetailPage extends StatelessWidget {
                           borderRadius: BorderRadius.all(Radius.circular(50)),
                         ),
                       ),
-                      onPressed: (){
+                      onPressed: () {
                         Navigator.pop(context);
                       },
-                      child: Icon(Icons.arrow_back_ios_new_rounded,
+                      child: Icon(
+                        Icons.arrow_back_ios_new_rounded,
                         color: Colors.black,
                         size: 30,
-
                       ),
                     ),
                   ),
-                  Text("اخبار",
+                  Text(
+                    "اخبار",
                     style: TextStyle(
-                      fontFamily: "Cairo",
-                      fontSize: 35,
-                      fontWeight: FontWeight.w900,
-                      color: Color(0xFF388E01),
-                      letterSpacing: -2
-                    ),
+                        fontFamily: "Cairo",
+                        fontSize: 35,
+                        fontWeight: FontWeight.w900,
+                        color: Color(0xFF388E01),
+                        letterSpacing: -2),
                   ),
                 ],
               ),
@@ -65,10 +68,13 @@ class NewsDetailPage extends StatelessWidget {
                   image: DecorationImage(
                     image: AssetImage(imagePath),
                     fit: BoxFit.cover,
+                  ),
                 ),
-              ),),
+              ),
             ),
-            SizedBox(height: 20,),
+            SizedBox(
+              height: 20,
+            ),
             Expanded(
               child: Container(
                 margin: EdgeInsets.symmetric(vertical: 0, horizontal: 20),
@@ -80,18 +86,20 @@ class NewsDetailPage extends StatelessWidget {
                       Text(
                         title,
                         textDirection: TextDirection.rtl,
-                        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                       SizedBox(height: 8),
-                      Text(date,
+                      Text(
+                        date,
                         textDirection: TextDirection.rtl,
                       ),
-                      Text(newsText,
+                      Text(
+                        newsText,
                         style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold
-                        ),
-                        textDirection: TextDirection.rtl,)
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                        textDirection: TextDirection.rtl,
+                      )
                       // Other news details can be added here
                     ],
                   ),
@@ -99,17 +107,16 @@ class NewsDetailPage extends StatelessWidget {
               ),
             ),
             Container(
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 2,
-                    blurRadius: 5,
-                  ),
-                ],
-              ),
-              child: BottomActionBar()
-            )
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 2,
+                      blurRadius: 5,
+                    ),
+                  ],
+                ),
+                child: BottomActionBar())
           ],
         ),
       ),

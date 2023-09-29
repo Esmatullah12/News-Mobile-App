@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class SignupPage extends StatefulWidget {
   @override
@@ -6,13 +7,9 @@ class SignupPage extends StatefulWidget {
 }
 
 class _SignupPageState extends State<SignupPage> {
-  TextEditingController _firstNameController = TextEditingController();
-  TextEditingController _lastNameController = TextEditingController();
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
-  TextEditingController _phoneNumberController = TextEditingController();
-  TextEditingController _countryCodeController = TextEditingController();
-  TextEditingController _confirmPasswordController = TextEditingController();
+  final _auth = FirebaseAuth.instance;
+  late String email;
+  late String password;
 
   @override
   Widget build(BuildContext context) {
@@ -45,14 +42,14 @@ class _SignupPageState extends State<SignupPage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             TextField(
-              controller: _firstNameController,
+              // onChanged: (value){
+              //   firstName = value;
+              // },
               decoration: InputDecoration(
                 labelText: 'First Name',
-                labelStyle: TextStyle(
-                    fontSize: 18,
-                    color: Color(0xFF388E01)
-                ),
-                contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+                labelStyle: TextStyle(fontSize: 18, color: Color(0xFF388E01)),
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: 15, horizontal: 25),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(40),
                   borderSide: BorderSide(color: Color(0xFF388E01)),
@@ -65,14 +62,14 @@ class _SignupPageState extends State<SignupPage> {
             ),
             SizedBox(height: 16.0),
             TextField(
-              controller: _lastNameController,
               decoration: InputDecoration(
                 labelText: 'Last Name',
                 labelStyle: TextStyle(
                   fontSize: 18,
                   color: Color(0xFF388E01),
                 ),
-                contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: 15, horizontal: 25),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(40),
                   borderSide: BorderSide(color: Color(0xFF388E01)),
@@ -85,14 +82,18 @@ class _SignupPageState extends State<SignupPage> {
             ),
             SizedBox(height: 16.0),
             TextField(
-              controller: _emailController,
+              onChanged: (value) {
+                email = value;
+              },
+              // controller: _emailController,
               decoration: InputDecoration(
                 labelText: 'Email',
                 labelStyle: TextStyle(
                   fontSize: 18,
                   color: Color(0xFF388E01),
                 ),
-                contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: 15, horizontal: 25),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(40),
                   borderSide: BorderSide(color: Color(0xFF388E01)),
@@ -109,14 +110,15 @@ class _SignupPageState extends State<SignupPage> {
                 Expanded(
                   flex: 2,
                   child: TextField(
-                    controller: _countryCodeController,
+                    // controller: _countryCodeController,
                     decoration: InputDecoration(
                       labelText: 'Country Code',
                       labelStyle: TextStyle(
                         fontSize: 18,
                         color: Color(0xFF388E01),
                       ),
-                      contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+                      contentPadding:
+                          EdgeInsets.symmetric(vertical: 15, horizontal: 25),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(40),
                         borderSide: BorderSide(color: Color(0xFF388E01)),
@@ -132,14 +134,15 @@ class _SignupPageState extends State<SignupPage> {
                 Expanded(
                   flex: 3,
                   child: TextField(
-                    controller: _phoneNumberController,
+                    // controller: _phoneNumberController,
                     decoration: InputDecoration(
                       labelText: 'Phone Number',
                       labelStyle: TextStyle(
                         fontSize: 18,
                         color: Color(0xFF388E01),
                       ),
-                      contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+                      contentPadding:
+                          EdgeInsets.symmetric(vertical: 15, horizontal: 25),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(40),
                         borderSide: BorderSide(color: Color(0xFF388E01)),
@@ -155,7 +158,10 @@ class _SignupPageState extends State<SignupPage> {
             ),
             SizedBox(height: 16.0),
             TextField(
-              controller: _passwordController,
+              onChanged: (value) {
+                password = value;
+              },
+              // controller: _passwordController,
               obscureText: true,
               decoration: InputDecoration(
                 labelText: 'Password',
@@ -163,7 +169,8 @@ class _SignupPageState extends State<SignupPage> {
                   fontSize: 18,
                   color: Color(0xFF388E01),
                 ),
-                contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: 15, horizontal: 25),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(40),
                   borderSide: BorderSide(color: Color(0xFF388E01)),
@@ -176,7 +183,7 @@ class _SignupPageState extends State<SignupPage> {
             ),
             SizedBox(height: 16),
             TextField(
-              controller: _confirmPasswordController,
+              // controller: _confirmPasswordController,
               obscureText: true,
               decoration: InputDecoration(
                 labelText: 'Confirm Password',
@@ -184,7 +191,8 @@ class _SignupPageState extends State<SignupPage> {
                   fontSize: 18,
                   color: Color(0xFF388E01),
                 ),
-                contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: 15, horizontal: 25),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(40),
                   borderSide: BorderSide(color: Color(0xFF388E01)),
@@ -203,23 +211,29 @@ class _SignupPageState extends State<SignupPage> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30.0),
                 ),
-                padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0), // Set button padding
+                padding: EdgeInsets.symmetric(
+                    vertical: 16.0, horizontal: 24.0), // Set button padding
               ),
-              onPressed: () {
-                // Implement signup logic here
-                String firstName = _firstNameController.text;
-                String lastName = _lastNameController.text;
-                String email = _emailController.text;
-                String password = _passwordController.text;
-                String countryCode = _countryCodeController.text;
-                String phoneNumber = _phoneNumberController.text;
-                // Perform signup action using collected data
+              onPressed: () async {
+                try {
+                  final newUser = _auth.createUserWithEmailAndPassword(
+                      email: email, password: password);
+                  if (newUser != null) {
+                    Navigator.pushNamed(context, "/home");
+                    print(email);
+                  }
+                } catch (e) {
+                  print(e);
+                }
               },
-              child: Text('Sign Up',
-                style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white
-                ),),
+
+              // print(email);
+              // print(password);
+
+              child: Text(
+                'Sign Up',
+                style: TextStyle(fontSize: 18, color: Colors.white),
+              ),
             ),
           ],
         ),

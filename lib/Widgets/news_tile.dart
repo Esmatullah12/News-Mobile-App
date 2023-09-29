@@ -24,13 +24,15 @@ class _NewsTileState extends State<NewsTile> {
   void toggleBookmark() {
     setState(() {
       if (isBookmarked) {
-        bookmarkedNews.remove(widget.news); // You should have a list 'bookmarkedNews'
+        bookmarkedNews
+            .remove(widget.news); // You should have a list 'bookmarkedNews'
       } else {
         bookmarkedNews.add(widget.news);
       }
       isBookmarked = !isBookmarked;
     });
   }
+
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),

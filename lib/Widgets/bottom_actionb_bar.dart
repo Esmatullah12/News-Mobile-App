@@ -29,19 +29,25 @@ class _BottomActionBarState extends State<BottomActionBar> {
               ),
               GestureDetector(
                 onTap: () {
-                  if (ModalRoute.of(context)!.settings.name != '/favorite_news'){
+                  if (ModalRoute.of(context)!.settings.name !=
+                      '/favorite_news') {
                     Navigator.pushNamed(context, '/favorite_news');
                   }
                 },
                 child: Icon(Icons.bookmark_border, size: 35),
               ),
               GestureDetector(
-                onTap: (){
-                  if (ModalRoute.of(context)!.settings.name != '/home'){
+                onTap: () {
+                  if (ModalRoute.of(context)!.settings.name != '/home') {
                     Navigator.pushNamed(context, '/home');
                   }
                 },
-                  child: Icon(Icons.home, size: 35, color: Color(0xFF388E01),),),
+                child: Icon(
+                  Icons.home,
+                  size: 35,
+                  color: Color(0xFF388E01),
+                ),
+              ),
             ],
           )),
     );

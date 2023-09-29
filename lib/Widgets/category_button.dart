@@ -23,12 +23,11 @@ class _CategoryButtonState extends State<CategoryButton> {
       child: ElevatedButton(
         onPressed: () {
           widget.onPressed();
-          if (widget.isSelected) {
-
-          }
+          if (widget.isSelected) {}
         },
         style: ElevatedButton.styleFrom(
-          backgroundColor: widget.isSelected ? Color(0xFF388E01) : Colors.grey[300],
+          backgroundColor:
+              widget.isSelected ? Color(0xFF388E01) : Colors.grey[300],
           textStyle: TextStyle(fontSize: 18),
           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 0),
           shape: RoundedRectangleBorder(
@@ -46,4 +45,3 @@ class _CategoryButtonState extends State<CategoryButton> {
     );
   }
 }
-

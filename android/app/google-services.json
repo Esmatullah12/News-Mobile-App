@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "624423629498",
+    "project_id": "news-app-39489",
+    "storage_bucket": "news-app-39489.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:624423629498:android:7211607b8fb62754a2c883",
+        "android_client_info": {
+          "package_name": "com.esmatullah.news_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_TyBfjKlf9RGIytMRuSxRzUYbgW4tOS0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

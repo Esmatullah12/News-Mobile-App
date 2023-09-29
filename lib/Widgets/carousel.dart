@@ -31,6 +31,7 @@ class _CarouselState extends State<Carousel> {
     super.initState();
     _pageController = PageController(initialPage: 1, viewportFraction: .93);
   }
+
   @override
   Widget build(BuildContext context) {
     return Container(
